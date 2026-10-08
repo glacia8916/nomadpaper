@@ -1,0 +1,1 @@
+ALTER TABLE `papers` ADD `analysis_error` text;

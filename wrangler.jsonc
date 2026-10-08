@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nomadpaper",
+  "main": "worker.ts",
+  "compatibility_date": "2026-05-15",
+  "triggers": {
+    "crons": ["35 16 * * *", "0 18 * * 6"],
+  },
+  "routes": [
+    {
+      "pattern": "nomadpaper.cn",
+      "custom_domain": true,
+    },
+    {
+      "pattern": "paper.nomadpaper.cn",
+      "custom_domain": true,
+    },
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "nomadpaper-prod",
+      "database_id": "4376c1a3-fbe5-47de-9a13-2c0c523b4f5c",
+      "migrations_dir": "drizzle",
+    },
+    {
+      "binding": "BACKUP_DB",
+      "database_name": "nomadpaper-backup",
+      "database_id": "130885e7-6f99-4e50-b85b-61bd76aad11a",
+    },
+  ],
+}
